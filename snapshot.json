@@ -1,0 +1,61 @@
+{
+  "name": "GlowCell",
+  "state": "glow",
+  "memory": {
+    "heat_count": 4
+  },
+  "rules": [
+    {
+      "type": "field",
+      "condition": "temperature > 60",
+      "action": "memory.heat_count += 1;\n    if (memory.heat_count > 2) {\n      state => 'liquid';"
+    },
+    {
+      "type": "field",
+      "condition": "light > 0.8",
+      "action": "state => 'glow';"
+    }
+  ],
+  "meta_rules": [
+    "if state == 'liquid' {\n      add_rule(on field(light > 0.8) { state => 'glow'; });\n    }"
+  ],
+  "trace_log": [
+    {
+      "tick": -1,
+      "rule_type": "field",
+      "condition": "light > 0.8",
+      "prev_state": "solid",
+      "new_state": "glow"
+    },
+    {
+      "tick": -1,
+      "rule_type": "field",
+      "condition": "temperature > 60",
+      "prev_state": "glow",
+      "new_state": "liquid"
+    },
+    {
+      "tick": -1,
+      "rule_type": "field",
+      "condition": "light > 0.8",
+      "prev_state": "liquid",
+      "new_state": "glow"
+    },
+    {
+      "tick": -1,
+      "rule_type": "field",
+      "condition": "temperature > 60",
+      "prev_state": "glow",
+      "new_state": "liquid"
+    },
+    {
+      "tick": -1,
+      "rule_type": "field",
+      "condition": "light > 0.8",
+      "prev_state": "liquid",
+      "new_state": "glow"
+    }
+  ],
+  "rule_mutations": [],
+  "adequacy": 0.93
+}
