@@ -113,10 +113,11 @@ run_simulation(sim, steps=10)
 
 **Monad Research Project** – Integrating metaphysics, simulation, and programmable intelligence.
 
-Learn more at: [noesis-net.org](https://noesis-net.org) (upcoming)
+Learn more at: [noesis-net.org](https://noesis-net.org) 
 
 ---
 
 ## 📄 License
 
 MIT License — free to use, extend, remix.
+
